@@ -1,5 +1,19 @@
+:focus{
+  border-color: #0366d6;
+  outline: none;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.myinp{
+  margin-top: 100px;
+}
+
 .App {
   text-align: center;
+}
+
+.myf{
+  font-family: 'Zilla Slab', serif;
 }
 
 .App-logo {

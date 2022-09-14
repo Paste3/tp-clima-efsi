@@ -1,8 +1,8 @@
 export default function Header() {
     return (
         <>
-            <nav class="navbar navbar-light bg-light">
-                <span class="navbar-brand mb-0 h1">Navbar</span>
+            <nav class="navbar navbar-light bg-light justify-content-center">
+                <span class="navbar-brand mb-0 h1 myf">CLIMA APP</span>
             </nav>
         </>
     );
