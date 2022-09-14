@@ -1,11 +1,12 @@
 import './App.css';
+import "./index.scss"
 import Clima from './components/Clima';
-console.log(Clima.temp)
+import LogoClima from './components/LogoClima';
+console.log(Clima)
 function App() {
   return (
     <>
-      <p>App</p>
-      <p>{Clima.temp}</p>
+      <LogoClima/>
     </>
   );
 }

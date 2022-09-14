@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 const axios = require('axios');
-export default function Clima() {
+export default function Clima(props) {
     const [TempValue, setTemp] = useState([]);
     const [MaxTempValue, setMaxTemp] = useState([]);
     const [MinTempValue, MinsetTemp] = useState([]);
@@ -12,7 +12,7 @@ export default function Clima() {
     }
 
     useEffect(() => {
-        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=buenos%20aires,argentina&APPID=467eb2e2a1738c82e813a30610d7c354`)
+        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${props.ciudad},${props.pais}&APPID=467eb2e2a1738c82e813a30610d7c354`)
             .then(function (response) {
                 console.log(response.main.temp)
                 setTemp(response.main.temp)
