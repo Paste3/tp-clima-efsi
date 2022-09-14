@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 const axios = require('axios');
-export default function Clima(props) {
+const Clima = (props) => {
     const [TempValue, setTemp] = useState([]);
     const [MaxTempValue, setMaxTemp] = useState([]);
     const [MinTempValue, MinsetTemp] = useState([]);
@@ -30,8 +30,24 @@ export default function Clima(props) {
             })
     })
     return (
-        {
-            datos
-        }
+        <>
+        <div id="weather_wrapper">
+            <div class="weatherCard">
+                <div class="currentTemp">
+                    <span class="temp">{TempValue}&deg;</span>
+                    <span class="location">{props.ciudad}</span>
+                </div>
+                <div class="currentWeather">
+                    <span class="conditions">&#xf00d;</span>
+                    <div class="info">
+                        <span class="rain">max {MaxTempValue}</span>
+                        <span class="wind">min {MinTempValue}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </>
     );
 }
+
+export default Clima
