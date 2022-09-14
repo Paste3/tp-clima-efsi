@@ -8,7 +8,8 @@ export default function Form() {
 
 
     function buscar() {
-
+        setCiudad(ciudad)
+        setPais(pais)
     }
 
     return (

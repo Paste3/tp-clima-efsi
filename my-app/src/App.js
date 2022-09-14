@@ -14,10 +14,10 @@ function App() {
       <div className='container'>
         <div className='row'>
           <div className='col'>
-            <Form />
+            <Form setPais={setPaisAPP} setCiudad={setCiudadAPP}/>
           </div>
           <div className='col'>
-            <ClimaLogo/>
+            <ClimaLogo ciudad={ciudadAPP} pais={paisAPP}/>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import ClimaDatos from "./ClimaDatos";
 
 export default function ClimaLogo(props) {
     
-    let datos = ClimaDatos()
+    let datos = ClimaDatos(props.ciudad,props.pais)
 
     return (
         <>

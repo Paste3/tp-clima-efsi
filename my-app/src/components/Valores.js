@@ -8,7 +8,7 @@ const Valores = (props) => {
     useEffect(() => {
         axios.get(`https://restcountries.com/v3.1/all`)
         .then(function (response) {
-            console.log(response.data[0].name);
+            console.log(response.data.name);
             ghostList=(response.data)
         })
         .catch(function (error) {
