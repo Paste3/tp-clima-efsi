@@ -3,7 +3,6 @@ const axios = require('axios');
 
 const Valores = (props) => {
     const [datos, setDatos] = useState([]);
-    console.log(props.id)
     useEffect(() => {
         axios.get(`https://www.universal-tutorial.com/api/getaccesstoken`, {
             'headers': {
@@ -19,7 +18,6 @@ const Valores = (props) => {
                     }
                 })
                     .then(function (response1) {
-                        console.log(response1.data);
                         setDatos(response1.data);
                     })
             })
@@ -30,7 +28,7 @@ const Valores = (props) => {
                 datos.map(
                     (i) => (
                         <>
-                            <option value={i.country_short_name}>{i.country_name}</option>
+                            <option value={i.country_name}>{i.country_name}</option>
                         </>
                     )
                 )

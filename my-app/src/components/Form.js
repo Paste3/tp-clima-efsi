@@ -1,16 +1,26 @@
 import Valores from "./Valores";
-import { useState } from "react"
 import ValoresCiudad from "./ValoresCiudad";
+import React, {useState } from "react";
+const axios = require('axios');
 
 export default function Form() {
 
-    const [pais, setPais] = useState("")
+    const [pais, setPais] = useState("Argentina")
     const [ciudad, setCiudad] = useState("")
 
-
-    function buscar() {
-        setCiudad(ciudad)
-        setPais(pais)
+    function Buscar(props) {
+        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&APPID=467eb2e2a1738c82e813a30610d7c354`)
+            .then(function (response) {
+                props.setTemp(response.data.main.temp-273.15)
+                props.setMaxTemp(response.data.main.temp_max-273.15)
+                props.MinsetTemp(response.data.main.temp_min-273.15)
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .then(function () {
+                console.log("Finally:")
+            })
     }
 
     return (
@@ -23,7 +33,7 @@ export default function Form() {
                 <option selected>Seleccione una ciudad</option>
                 <ValoresCiudad pais={pais}></ValoresCiudad>
             </select>
-            <button type="button" class="btn btn-success myi" onClick={buscar}>Buscar pais</button>
+            <button type="button" class="btn btn-success myi" onClick={Buscar}>Buscar pais</button>
         </>
     );
 }

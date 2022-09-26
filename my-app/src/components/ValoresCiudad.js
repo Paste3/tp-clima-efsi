@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 const axios = require('axios');
 
-const Valores = (props) => {
+const ValoresCiudad = (props) => {
     const [datos, setDatos] = useState([]);
-    console.log(props.id)
-    let ghostList = [];
     useEffect(() => {
         axios.get(`https://www.universal-tutorial.com/api/getaccesstoken`, {
             'headers': {
@@ -13,7 +11,6 @@ const Valores = (props) => {
             }
         })
             .then(function (response) {
-                console.log(response.data);
                 axios.get(`https://www.universal-tutorial.com/api/states/${props.pais}`, {
                     'headers': {
                         "Authorization": `Bearer ${response.data.auth_token}`,
@@ -21,19 +18,17 @@ const Valores = (props) => {
                     }
                 })
                     .then(function (response1) {
-                        console.log(response1.data);
                         setDatos(response1.data);
-                        console.log("aaaaaaaaaaaaaa")
                     })
             })
-    }, [props.id])
+    })
     return (
         <>
             {
                 datos.map(
                     (i) => (
                         <>
-                            <option value={i}>{i}</option>
+                            <option value={i.state_name}>{i.state_name}</option>
                         </>
                     )
                 )
@@ -42,4 +37,4 @@ const Valores = (props) => {
     );
 }
 
-export default Valores;
+export default ValoresCiudad;
